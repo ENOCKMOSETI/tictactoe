@@ -1,0 +1,13 @@
+button {
+    width: 100%;
+    height: 100%;
+    font-size: 5em;
+}
+
+.X {
+    background-color: aliceblue;
+}
+
+.O {
+    background-color: antiquewhite;
+}
