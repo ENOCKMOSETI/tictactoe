@@ -2,8 +2,10 @@
 <h1 *ngIf="winner">{{winner}} wins!</h1>
 <h1 *ngIf="drawGame">the Game is Drawn</h1>
 
-<button *ngIf="winner" (click)="newGame()">Play Again</button>
-<button *ngIf="gameOver && drawGame" (click)="newGame()">Reset Game</button>
+<div class="button">
+    <button *ngIf="winner" (click)="newGame()">Play Again</button>
+    <button *ngIf="gameOver && drawGame" (click)="newGame()">Reset Game</button>
+</div>
 
 <main>
     <app-square 
@@ -14,3 +16,11 @@
         >
     </app-square>
 </main>
+
+<div>
+    <h2>scores</h2>
+    <div>
+        <span>Player X: {{xWon}}</span><br>
+        <span>Player O: {{oWon}}</span>
+    </div>
+</div>

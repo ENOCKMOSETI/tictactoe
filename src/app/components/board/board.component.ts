@@ -14,6 +14,8 @@ export class BoardComponent implements OnInit {
   turnCount!: number;
   hasWon: boolean = false;
   winningPattern: number[] = [];
+  xWon: number = 0;
+  oWon: number = 0;
 
   constructor() { }
 
@@ -67,6 +69,11 @@ export class BoardComponent implements OnInit {
       ) {
         this.hasWon = true;
         this.winningPattern = lines[i];
+        if(this.squares[a] == 'X') {
+          this.xWon++;
+        } else if (this.squares[a] == 'O') {
+          this.oWon++;
+        }
         return this.squares[a];
       }
     }

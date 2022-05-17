@@ -2,6 +2,12 @@ main {
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-gap: 0px;
+    justify-content: center;
+    background-color: #d4d4d4;
+}
+
+.button {
+    justify-content: center;
 }
 
 app-square {
