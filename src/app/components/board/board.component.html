@@ -9,6 +9,8 @@
     <app-square 
         *ngFor="let square of squares; let i = index" 
         [value]="square"
-        (click)="makeMove(i)">
+        (click)="makeMove(i)"
+        [isInWinningPattern]=" i | inWinningPattern :winningPattern"
+        >
     </app-square>
 </main>

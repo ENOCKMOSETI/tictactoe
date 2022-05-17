@@ -11,3 +11,8 @@ button {
 .O {
     background-color: antiquewhite;
 }
+
+.won {
+    background-color: green;
+    color: #fff;
+}

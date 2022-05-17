@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InWinningPatternPipe } from 'src/app/pipes/in-winning-pattern.pipe';
 
 @Component({
   selector: 'app-board',
@@ -11,6 +12,8 @@ export class BoardComponent implements OnInit {
   xIsNext!: boolean;
   winner!: string | null;
   turnCount!: number;
+  hasWon: boolean = false;
+  winningPattern: number[] = [];
 
   constructor() { }
 
@@ -30,12 +33,16 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(index: number) {
+    if (this.hasWon) {
+      return
+    }
     if (!this.squares[index]) {
       this.squares.splice(index, 1, this.player);
       this.xIsNext = !this.xIsNext;
       this.turnCount++;
     }
     this.winner = this.calculateWinner();
+    
   }
 
   calculateWinner() {
@@ -56,6 +63,10 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.hasWon = true;
+        console.log(lines[i]);
+        
+        this.winningPattern = lines[i];
         return this.squares[a];
       }
     }
