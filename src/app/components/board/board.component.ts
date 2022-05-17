@@ -26,6 +26,8 @@ export class BoardComponent implements OnInit {
     this.xIsNext = true;
     this.winner = null;
     this.turnCount = 0;
+    this.hasWon = false;
+    this.winningPattern = [];
   }
 
   get player() {
@@ -64,8 +66,6 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[c]
       ) {
         this.hasWon = true;
-        console.log(lines[i]);
-        
         this.winningPattern = lines[i];
         return this.squares[a];
       }
