@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { InWinningPatternPipe } from 'src/app/pipes/in-winning-pattern.pipe';
 
 import { BoardComponent } from './board.component';
 
@@ -8,7 +9,7 @@ describe('BoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BoardComponent ]
+      declarations: [ BoardComponent, InWinningPatternPipe ]
     })
     .compileComponents();
   });
@@ -21,5 +22,12 @@ describe('BoardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render squares', () => {
+    const fixture = TestBed.createComponent(BoardComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-square')).toBeTruthy();
   });
 });

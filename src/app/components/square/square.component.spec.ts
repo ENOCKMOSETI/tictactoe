@@ -22,4 +22,11 @@ describe('SquareComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render button', () => {
+    const fixture = TestBed.createComponent(SquareComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('button')).toBeTruthy();
+  });
 });
